@@ -279,7 +279,7 @@ function calcularResultados() {
     });
     
     function addDados4(resultadoD, termino) { 
-        document.getElementById("message4").textContent = `O comprimento inicial:${resultadoD}---término: ${termino}`;
+        document.getElementById("message4").textContent = `O comprimento inicial:${resultadoD}-término: ${termino}`;
     }
     
     document.getElementById("sun").addEventListener('click', () => {
@@ -290,7 +290,7 @@ function calcularResultados() {
     });
     
     function addDados5(resultadoE, termino2) { 
-        document.getElementById("message5").textContent = `A largura inicial: ${resultadoE}---término ${termino2}`;
+        document.getElementById("message5").textContent = `A largura inicial: ${resultadoE}-término ${termino2}`;
     }
     
     document.getElementById("sun").addEventListener('click', () => {
@@ -307,7 +307,7 @@ function calcularResultados() {
         addDados6(resultadoF);
     });
     function addDados7(resultadoG, terminoLav) { 
-        document.getElementById("message7").textContent = `Início da Lavagem: ${resultadoG}---ultima lavagem ${terminoLav}`;
+        document.getElementById("message7").textContent = `Início da Lavagem: ${resultadoG}-ultima lavagem ${terminoLav}`;
     }
     
     document.getElementById("sun").addEventListener('click', () => {
@@ -406,3 +406,5 @@ function generatePDF() {
             botoes.forEach(botao => botao.classList.remove("hidden-during-pdf"));
         });
 }
+
+
