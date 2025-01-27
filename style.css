@@ -255,12 +255,13 @@ input, select {
 .conteudoFotos {
   box-sizing: border-box; /* Inclui a borda no cálculo do tamanho */
   border: 3px solid #03A6A6 !important; /* Certifique-se de que a borda é aplicada */
-  padding: 10px;
+  margin: 20px auto;
+  padding: 20px;
   overflow-x: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 1.5rem;
-
+  max-width: 1000px; /* Limite de largura */
   color: #4C6173;
   font-size: 0.75em;
   width: 100%;
@@ -270,9 +271,13 @@ input, select {
 
 .previsaoFotos {
 
-  display: flex;
+  display:inline;
+ 
+  
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 1.5rem;
+
+
 }
 .fotoUpload {
   color: #fff;
@@ -317,6 +322,7 @@ input, select {
   border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
+ 
 }
 label {
 
