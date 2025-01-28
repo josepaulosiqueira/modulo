@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="style.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     
     <title>Laudo de Teste</title>
@@ -20,7 +20,7 @@
                  src=".\image\new2.webp" 
                  alt="Imagem girando"/>
                  
-        <h3>Cliente:<input type="text" id="cli" placeholder="Cliente"></h3><br>
+        <h3 class="cliente">Cliente:<input type="text" id="cli" placeholder="Cliente"></h3><br>
         <h2>LAUDO DE TESTE DE LAVAÇÃO DE ENXOVAL</h2><br>
         <h3 class="text">Objetivo: Avaliação das peças de enxoval submetidas ao processo de higienização para verificar a 
             manutenção das características originais (dimensões, cor e integridade) após a lavagem.</h3><br>
@@ -172,12 +172,133 @@
     <p><br><br>__________________________________________________________<br>Assinatura</p>
     <br><br>
     <div class="btns">
-    <button onclick="calcularResultados()">Calcular</button>
-    <button type="button" id="sun">Criar Laudo</button> 
-    <button id="PDF">Gerar PDF</button>
+    <button onclick="calcularResultados()"><i class="fa-solid fa-calculator" style="color: #4C6173; font-size: 28px;"></i></button>
+    <button type="button" id="sun"><i class="fa-solid fa-folder-open" style="color:  #03A6A6; font-size: 28px;"></i></button> 
+    <button class="pdf" id="PDF"><i class="fa-solid fa-file-pdf" style="color: #D90416; font-size: 28px;"></i></button>
+  
+
     </div>
 </div>
 </div>
+<section class="fotos">
+    <div class="conteudoFotos" id="conteudoFotos">
+        <h2>Fotos</h2>
+        <form id="formFotos" onsubmit="salvarFotos(event)">
+            <div class="fotoUpload">
+                <label for="foto1" >Foto1:</label>
+                <input type="file" id="foto1" vspace="20" hspace="20" accept="image/*"><br><br>
+
+                <label for="foto2">Foto2:</label>
+                <input type="file" id="foto2" vspace="20" hspace="20" accept="image/*"><br><br>
+
+                <label for="foto3">Foto3:</label>
+                <input type="file" id="foto3" vspace="20" hspace="20" accept="image/*"><br><br>
+
+                <label for="foto4">Foto4:</label>
+                <input type="file" id="foto4" vspace="20" hspace="20" accept="image/*"><br><br>
+            </div>
+
+            <div class="btns">
+                <button class="photo" type="button" id="previewFotos" onclick="preverFotos()"><i class="fa-solid fa-image" style="color:  #03A6A6; font-size: 28px;"></i></button>
+               
+            </div>
+        </form>
+
+        <h3></h3>
+        <div class="previsaoFotos" id="previsaoFotos"></div>
+    </div>
+    <script>
+        // Prever as fotos carregadas
+        function preverFotos() {
+            const previewContainer = document.getElementById("previsaoFotos");
+            previewContainer.innerHTML = "";
+
+            const files = [
+                document.getElementById("foto1").files[0],
+                document.getElementById("foto2").files[0],
+                document.getElementById("foto3").files[0],
+                document.getElementById("foto4").files[0],
+            ];
+
+            files.forEach(file => {
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement("img");
+                        img.src = e.target.result;
+                        img.style.width = "150px";
+                        img.style.height = "150px";
+                        img.style.objectFit = "cover";
+                        previewContainer.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Salvar fotos no localStorage e redirecionar
+        function salvarFotos(event) {
+            event.preventDefault();
+
+            const files = [
+                document.getElementById("foto1").files[0],
+                document.getElementById("foto2").files[0],
+                document.getElementById("foto3").files[0],
+                document.getElementById("foto4").files[0],
+            ];
+
+            const fotosBase64 = [];
+            const readerPromises = files.map(file => {
+                if (file) {
+                    return new Promise(resolve => {
+                        const reader = new FileReader();
+                        reader.onload = (e) => resolve(e.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                }
+                return null;
+            });
+
+            Promise.all(readerPromises).then(results => {
+                results.forEach(result => {
+                    if (result) fotosBase64.push(result);
+                });
+
+                if (fotosBase64.length === 0) {
+                    alert("Por favor, adicione pelo menos uma foto antes de salvar.");
+                    return;
+                }
+
+                // Salva as fotos no localStorage
+                localStorage.setItem("fotosLaudo", JSON.stringify(fotosBase64));
+
+                // Redireciona para index.html
+                window.location.href = "index.html";
+            }).catch(err => {
+                console.error("Erro ao salvar fotos:", err);
+                alert("Erro ao salvar as fotos. Tente novamente.");
+            });
+        }
+
+        // Recuperar e exibir as fotos salvas no início
+        window.onload = function () {
+            const fotosSalvas = JSON.parse(localStorage.getItem("fotosLaudo")) || [];
+            const previewContainer = document.getElementById("previsaoFotos");
+
+            if (fotosSalvas.length > 0) {
+                fotosSalvas.forEach(foto => {
+                    const img = document.createElement("img");
+                    img.src = foto;
+                    img.style.width = "150px";
+                    img.style.height = "150px";
+                    img.style.objectFit = "cover";
+                    previewContainer.appendChild(img);
+                });
+            }
+        };
+    </script>
+</section>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 <script src="main.js" defer></script>
 </body>
