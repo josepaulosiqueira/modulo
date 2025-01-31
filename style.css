@@ -14,10 +14,14 @@ body {
 }
 
 #conteudoPDF {
+  font-family: 'Roboto', 'Poppins', sans-serif;
+  white-space: normal;
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
   width: 100%;
-  max-width: 1000px; /* Limite de largura */
+  max-width:1000px; /* Limite de largura */
   margin: 20px auto;
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(45deg, #edf3f5, #c8d2dd);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
