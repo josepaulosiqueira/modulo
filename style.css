@@ -36,7 +36,7 @@ h1 {
   font-size: 1em;
   text-align: center;
   color: #4C6173;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 h2 {
@@ -44,7 +44,7 @@ h2 {
   font-size: 1.5em;
   text-align:center;
   color: #03A6A6;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .cliente {
 
@@ -53,7 +53,7 @@ h2 {
   text-align:center;
   color: #03A6A6;
   margin-left: 5.0rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
 }
 
@@ -66,10 +66,10 @@ h3 {
 
 h4{
   font-style: italic;
-  font-size: 1.2em;
+  font-size: 1rem;
   text-align: left;
   color: #03A6A6;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 
 .text{
@@ -88,12 +88,22 @@ p {
   color: #4C6173;
   margin-bottom: 5px;
 }
+#result, #resultadoB, #resultadoC, #resultadoD, #resultadoE, #resultadoF, #resultadoG, #resultadoH, #resultadoI, #resultadoJ {
+
+  font-size: 1.20em;
+  font-size: bold;
+  text-align:center;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #03A6A6
+
+}
 
 #cli {
   
   background-color: transparent;
   border-radius: 6px;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 5px;
   border: 1px solid transparent;
   width: 35%;
@@ -108,7 +118,7 @@ p {
 
 .div2 {
   width: 100%;
-  padding: 10px;
+  padding: 0;
   overflow-x: auto; /* Habilita rolagem horizontal, se necessário */
 }
 
@@ -117,6 +127,7 @@ p {
   max-width: 100%; /* Limita o tamanho da tabela */
   border-collapse: collapse;
   margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 0.75em;
 }
 
@@ -233,8 +244,8 @@ input, select {
 }
 
 .girar{
-  max-width: 200px;
-  width: 150px;
+  max-width: 170px;
+  width: 120px;
   margin-bottom: 10px;
   display: flex;
  
@@ -243,112 +254,135 @@ input, select {
 
 
 .fotos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width:1000px; /* Limite de largura */
+
+  background: linear-gradient(45deg, #edf3f5, #c8d2dd);
+  height: 1000px; /* Altura A4 */
+  margin: 20px auto;
+  
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+fieldset {
+  border: 1px solid #03A6A6;
+  padding: 10px;
+
+ 
+  border-radius: 5px;
+  margin-bottom: 1px;
+  max-width:100%;
+  
+}
+legend {
+  font-style: italic;
+  font-size: 1.5em;
+  text-align:left;
+  padding-top: 5px !important;
+  padding-bottom: 5px;
+  color: #03A6A6;
+  margin-bottom: 1px;
   
 
-  font-style: italic;
-  font-size: 24px;
-  text-align:center;
-  color: #03A6A6;
-  margin-bottom: 10px;
- 
 }
 
-.conteudoFotos {
-  box-sizing: border-box; /* Inclui a borda no cálculo do tamanho */
-  border: 3px solid #03A6A6 !important; /* Certifique-se de que a borda é aplicada */
-  border-radius: 6px;
-  margin: 20px auto;
-  padding: 20px;
-  overflow-x: auto;
+
+.conteudoFotos{
+  text-align: center;
+}
+
+
+.fotoUpload {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px; /* Limite de largura */
-  color: #4C6173;
-  font-size: 0.75em;
-  width: 100%;
-  height: auto; /* Adicione para permitir que o conteúdo ajuste a altura */
+  grid-template-columns: repeat(2, 1fr); /* Garante que ambas as seções tenham 2 colunas */
+  gap: 15px;
+  max-width: fit-content;
 }
 
+.foto-container {
+  position: relative;
+ 
+  width: 220px;
+  height: 180px;
+}
+
+.foto-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  border: 2px solid #03A6A6;
+}
+
+
+
+.foto-container input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.btns {
+  margin-top: 20px;
+}
 
 .previsaoFotos {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-  display:inline;
+.previsaoFotos img {
+  width: 1px;
+  height: 1px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: right;
+  font-size: 0.50rem;
+  margin-top: 2px;
+}
+
+footer a {
+  color:  #4C6173;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  color:  #4C6173;
  
+}
+
+.e-mail {
+  text-align: center;
+ 
+  text-decoration: underline;
+  color:  #4C6173;
+  padding-top: 10px ;
   
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.5rem;
-
 
 }
-.fotoUpload {
-  color: #fff;
-  font-size: 0.75rem;
-  width: 100%;
-  padding: 10px;
-  overflow-x: auto;
-
-
-
-
-}
-.fa-solid fa-image {
-  
- 
-  padding: 8px 12px;
-  font-size: 1.25rem;
-  background-color: #03A6A6;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-}
- 
- 
-.hidden-during-pdf {
-  display: none !important;
-}
-
-.page-break {
-  page-break-before: always;
-}
-.conteudoFotos #formFotos .fotoUploaud {
- 
-  padding: 5px;
-  border: 1px solid transparent;
- 
-  width: 100%;
-  padding: 8px 12px;
-  font-size: 1.25em;
-  background-color:transparent;
-  color: #4C6173;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
- 
-}
-label {
-
-  padding: 5px;
-  border: 1px solid transparent;
-
-  width: 100%;
-  padding: 8px 12px;
-  font-size: 1.25em;
-  background-color:transparent;
-  color: #fff;
-  border:transparent;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-
-
-
-}
-
-
  
  
  
