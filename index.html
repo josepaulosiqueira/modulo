@@ -154,7 +154,7 @@
 
      
     
-      <fieldset><legend>Conclusões: </legend>
+      <fieldset class="messagens"><legend>Conclusões: </legend>
     
      <br><p id="message"></p>
      <br><p id="message2"></p>
@@ -174,16 +174,11 @@
     <br><br>
     <div class="btns">
     <button onclick="calcularResultados()"><i class="fa-solid fa-calculator" style="color: #4C6173; font-size: 28px;"></i></button>
-    <button type="button" id="sun"><i class="fa-solid fa-folder-open" style="color:  #03A6A6; font-size: 28px;"></i></button> 
+    <button type="button" id="sun"><i class="fa-solid fa-file-lines" style="color:  #03A6A6; font-size: 28px;"></i></button> 
+    
     <button class="pdf" id="PDF"><i class="fa-solid fa-file-pdf" style="color: #D90416; font-size: 28px;"></i></button>
   
-    <footer>
-        <p>
-          <a href="#">Termos de Uso</a> /
-          <a href="#">Política de Privacidade</a>
-        </p>
-      
-      </footer>
+    
 </fieldset>
 
     </div>
@@ -195,7 +190,7 @@
         <form id="formFotos" onsubmit="salvarFotos(event)">
             
             <!-- Fotos Pré-lavagem -->
-            <fieldset>
+            <fieldset class="retrato">
                 <legend>Fotos pré-lavagem </legend>
                 <div class="fotoUpload">
                     <div class="foto-container">
@@ -218,7 +213,7 @@
             </fieldset>
 
             <!-- Fotos Pós-lavagem -->
-            <fieldset>
+            <fieldset class="retrato">
                 <legend>Fotos pós-lavagem </legend>
                 <div class="fotoUpload">
                     <div class="foto-container">
@@ -253,7 +248,7 @@
             
             <div class="previsaoFotos" id="previsaoFotos"></div>
             
-            </footer>
+           
         </form>
     </div>
     <footer>

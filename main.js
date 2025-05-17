@@ -404,7 +404,7 @@ function generatePDF() {
         filename: `Laudo_de_teste_${cliente}.pdf`,
         image: {
             type: 'jpeg',
-            quality: 0.98
+            quality: 0.99
         },
         html2canvas: {
             scale: 2,

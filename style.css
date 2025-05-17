@@ -15,10 +15,14 @@ body {
 
 
 #conteudoPDF {
+  font-family: 'Roboto', 'Poppins', sans-serif;
+  white-space: normal;
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
   width: 100%;
-  max-width: 1000px; /* Limite de largura */
+  max-width:1000px; /* Limite de largura */
   margin: 20px auto;
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(45deg, #edf3f5, #c8d2dd);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
@@ -31,7 +35,7 @@ h1 {
   font-style: italic;
   font-size: 1em;
   text-align: center;
-  color: #4C6173;
+  color: black;
   margin-bottom: 5px;
 }
 
@@ -62,10 +66,10 @@ h3 {
 
 h4{
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.2em;
   text-align: left;
   color: #03A6A6;
-  margin-bottom: 1px;
+  margin-bottom: px;
 }
 
 .text{
@@ -73,7 +77,7 @@ h4{
   text-align: left;
   margin-left: 10px;
   margin-right: 10px;
-  color: #4C6173;
+  color: rgba(0, 0, 0, 0.568);
 }
 
 p {
@@ -81,7 +85,7 @@ p {
   font-style: italic;
   font-weight: lighter;
   font-size: 1.20em;
-  color: #4C6173;
+  color: black;
   margin-bottom: 5px;
 }
 #result, #resultadoB, #resultadoC, #resultadoD, #resultadoE, #resultadoF, #resultadoG, #resultadoH, #resultadoI, #resultadoJ {
@@ -99,7 +103,7 @@ p {
   
   background-color: transparent;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 1em;
   padding: 5px;
   border: 1px solid transparent;
   width: 35%;
@@ -114,7 +118,7 @@ p {
 
 .div2 {
   width: 100%;
-  padding: 1px;
+  padding: 10px;
   overflow-x: auto; /* Habilita rolagem horizontal, se necessário */
 }
 
@@ -194,7 +198,7 @@ button {
 }
 .pdf {
 
-  width: 10%;
+  width: 5%;
   padding: 10px;
   margin: 5px 0;
   background-color:transparent;
@@ -203,13 +207,19 @@ button {
 
 #sun:hover{
   background-color: #ccc;
+  -webkit-transform:scale(1.75);
+ 
 }
 
 
 
 #PDF:hover{
   background-color: #fbbbc0;
-}
+  -webkit-transform:scale(1.75);
+ 
+  
+ }
+
 
 .btns{
   display: flex;
@@ -221,13 +231,15 @@ button {
 
 button:hover {
   background-color: #65c7c7;
+  -webkit-transform:scale(1.75);
+ 
 }
 
 input, select {
   background-color: transparent;
   padding: 5px;
   border: 1px solid transparent;
-  font-size: 0.95em;
+  font-size: 1.25em;
   width: 100%;
 }
 
@@ -254,11 +266,9 @@ input, select {
   flex-direction: column;
   align-items: center;
   max-width:1000px; /* Limite de largura */
-
   background: linear-gradient(45deg, #edf3f5, #c8d2dd);
   height: 1000px; /* Altura A4 */
   margin: 20px auto;
-  border: 1px solid #65c7c7;
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
@@ -266,28 +276,43 @@ input, select {
 fieldset {
   border: 1px solid #03A6A6;
   padding: 10px;
-
- 
   border-radius: 5px;
   margin-bottom: 1px;
   max-width:100%;
   
 }
+
 legend {
   font-style: italic;
   font-size: 1.5em;
   text-align:left;
-  padding-top: 5px !important;
-  padding-bottom: 5px;
+  padding-top: 10px !important;
+  padding-bottom: 10px;
   color: #03A6A6;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
   
+
+}
+.retrato {
+
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  max-width:1000px; /* Limite de largura */
+  background: linear-gradient(45deg, #edf3f5, #c8d2dd);
+  height: 450px; /* Altura A4 */
+  margin: 10px auto;
+  padding: 10px 130px;
+  border-radius: 10px;  
+  background-color: #fff;
 
 }
 
 
 .conteudoFotos{
   text-align: center;
+ 
+  
 }
 
 
@@ -299,8 +324,9 @@ legend {
 }
 
 .foto-container {
+  
   position: relative;
- 
+  border-top: 10px;
   width: 220px;
   height: 180px;
 }
@@ -314,13 +340,14 @@ legend {
   top: 0;
   left: 0;
   cursor: pointer;
-  border: 2px solid #03A6A6;
+  border: 1px solid #03A6A6;
 }
 
 
 
 .foto-container input {
   position: absolute;
+  
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -328,7 +355,7 @@ legend {
 }
 
 .btns {
-  margin-top: 20px;
+  margin-top: 3px;
 }
 
 .previsaoFotos {
@@ -345,44 +372,10 @@ legend {
   border-radius: 5px;
 }
 
-/* FOOTER */
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  text-align: right;
-  font-size: 0.50rem;
-  margin-top: 2px;
-}
-
-footer a {
-  color:  #4C6173;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-footer p {
-  color:  #4C6173;
- 
-}
-
 .e-mail {
-  text-align: center;
- 
-  text-decoration: underline;
-  color:  #4C6173;
-  padding-top: 10px ;
-  
 
+  margin-top: 2px;
+  font-size: 1.20em;
+  color: #4C6173;
+  margin-bottom: 2px;
 }
- 
- 
- 
-
-
-
- 
