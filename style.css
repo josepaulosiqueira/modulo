@@ -8,7 +8,8 @@
 }
 
 body {
-  color: #4C6173;
+  color: #4C6173; 
+
   font-size: 0.75em;
 
 }
@@ -23,7 +24,7 @@ body {
   max-width:1000px; /* Limite de largura */
   margin: 20px auto;
   padding: 10px;
-  background: linear-gradient(45deg, #edf3f5, #c8d2dd);
+  background: repeating-linear-gradient(45deg, #249fc124, #F2F2F2 15%, #b1c2d560 20%);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
   display: flex;
@@ -196,7 +197,7 @@ button {
   display: flex ;
 
 }
-.pdf {
+.fa-solid fa-pdf {
 
   width: 5%;
   padding: 10px;
@@ -266,7 +267,7 @@ input, select {
   flex-direction: column;
   align-items: center;
   max-width:1000px; /* Limite de largura */
-  background: linear-gradient(45deg, #edf3f5, #c8d2dd);
+  background: repeating-linear-gradient(45deg, #249fc124, #F2F2F2 15%, #b1c2d560 20%);
   height: 1000px; /* Altura A4 */
   margin: 20px auto;
   padding: 20px;
@@ -299,7 +300,7 @@ legend {
   flex-direction: column;
   align-items: center;
   max-width:1000px; /* Limite de largura */
-  background: linear-gradient(45deg, #edf3f5, #c8d2dd);
+  background: repeating-linear-gradient(45deg, #249fc124, #F2F2F2 15%, #b1c2d560 20%);
   height: 450px; /* Altura A4 */
   margin: 10px auto;
   padding: 10px 130px;
