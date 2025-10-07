@@ -115,19 +115,20 @@ function somarLinhaJ() {
 
 
     const resultadoJ = (j1 - j5) / j1;
-    const resultadoFormatado = resultadoJ.toFixed(2) + '%';
+    const resultadoFormatado = parseFloat(resultadoJ.toFixed(2)) + '%';
 
     document.getElementById('resultadoJ').innerText = resultadoFormatado;
 
     return resultadoJ;
 }
 
+// ---- CÁLCULOS DA LINHA D ----
 function calcularD1menosD2() {
-    const d1 = parseFloat(document.getElementById('d1').value).toFixed(2) || 0;
-    const d2 = parseFloat(document.getElementById('d2').value).toFixed(2) || 0;
+    const d1 = parseFloat(document.getElementById('d1').value) || 0;
+    const d2 = parseFloat(document.getElementById('d2').value) || 0;
 
     const resultado = d1 - d2;
-    const porcentagem = d1 != 0 ? ((resultado / d1) * 100).toFixed(2) : 0;
+    const porcentagem = d1 !== 0 ? ((resultado / d1) * 100).toFixed(2) : 0;
 
     document.getElementById('i2').value = porcentagem + '%';
     return resultado;
@@ -138,9 +139,9 @@ function calcularD2menosD3() {
     const d3 = parseFloat(document.getElementById('d3').value) || 0;
 
     const resultado = d2 - d3;
-    const porcentagem = d2 !== 0 ? (resultado / d2) * 100 : 0;
+    const porcentagem = d2 !== 0 ? ((resultado / d2) * 100).toFixed(2) : 0;
 
-    document.getElementById('i3').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('i3').value = porcentagem + '%';
     return resultado;
 }
 
@@ -149,9 +150,9 @@ function calcularD3menosD4() {
     const d4 = parseFloat(document.getElementById('d4').value) || 0;
 
     const resultado = d3 - d4;
-    const porcentagem = d3 !== 0 ? (resultado / d3) * 100 : 0;
+    const porcentagem = d3 !== 0 ? ((resultado / d3) * 100).toFixed(2) : 0;
 
-    document.getElementById('i4').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('i4').value = porcentagem + '%';
     return resultado;
 }
 
@@ -160,23 +161,21 @@ function calcularD4menosD5() {
     const d5 = parseFloat(document.getElementById('d5').value) || 0;
 
     const resultado = d4 - d5;
-    const porcentagem = d4 !== 0 ? (resultado / d4) * 100 : 0;
+    const porcentagem = d4 !== 0 ? ((resultado / d4) * 100).toFixed(2) : 0;
 
-    document.getElementById('i5').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('i5').value = porcentagem + '%';
     return resultado;
 }
 
-
-
-
+// ---- CÁLCULOS DA LINHA E ----
 function calcularE1menosE2() {
     const e1 = parseFloat(document.getElementById('e1').value) || 0;
     const e2 = parseFloat(document.getElementById('e2').value) || 0;
 
     const resultado = e1 - e2;
-    const porcentagem = e1 !== 0 ? (resultado / e1) * 100 : 0;
+    const porcentagem = e1 !== 0 ? ((resultado / e1) * 100).toFixed(2) : 0;
 
-    document.getElementById('j2').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('j2').value = porcentagem + '%';
     return resultado;
 }
 
@@ -185,9 +184,9 @@ function calcularE2menosE3() {
     const e3 = parseFloat(document.getElementById('e3').value) || 0;
 
     const resultado = e2 - e3;
-    const porcentagem = e2 !== 0 ? (resultado / e2) * 100 : 0;
+    const porcentagem = e2 !== 0 ? ((resultado / e2) * 100).toFixed(2) : 0;
 
-    document.getElementById('j3').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('j3').value = porcentagem + '%';
     return resultado;
 }
 
@@ -196,9 +195,9 @@ function calcularE3menosE4() {
     const e4 = parseFloat(document.getElementById('e4').value) || 0;
 
     const resultado = e3 - e4;
-    const porcentagem = e3 !== 0 ? (resultado / e3) * 100 : 0;
+    const porcentagem = e3 !== 0 ? ((resultado / e3) * 100).toFixed(2) : 0;
 
-    document.getElementById('j4').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('j4').value = porcentagem + '%';
     return resultado;
 }
 
@@ -207,11 +206,36 @@ function calcularE4menosE5() {
     const e5 = parseFloat(document.getElementById('e5').value) || 0;
 
     const resultado = e4 - e5;
-    const porcentagem = e4 !== 0 ? (resultado / e4) * 100 : 0;
+    const porcentagem = e4 !== 0 ? ((resultado / e4) * 100).toFixed(2) : 0;
 
-    document.getElementById('j5').value = porcentagem.toFixed(2) + '%';
+    document.getElementById('j5').value = porcentagem + '%';
     return resultado;
 }
+
+// ---- SOMA DAS REDUÇÕES (COMPRIMENTO E LARGURA) ----
+function somarLinhaI() {
+    const i1 = parseFloat((document.getElementById('d1').value || '0').replace('%', '')) || 0;
+    const i5 = parseFloat((document.getElementById('d5').value || '0').replace('%', '')) || 0;
+
+    const resultadoI = i1 !== 0 ? ((i1 - i5) / i1) * 100 : 0;
+    const resultadoFormatado = parseFloat(resultadoI.toFixed(2)) + '%';
+
+    document.getElementById('resultadoI').innerText = resultadoFormatado;
+    return resultadoI;
+}
+
+function somarLinhaJ() {
+    const j1 = parseFloat((document.getElementById('e1').value || '0').replace('%', '')) || 0;
+    const j5 = parseFloat((document.getElementById('e5').value || '0').replace('%', '')) || 0;
+
+    const resultadoJ = j1 !== 0 ? ((j1 - j5) / j1) * 100 : 0;
+    const resultadoFormatado = parseFloat(resultadoJ.toFixed(2)) + '%';
+
+    document.getElementById('resultadoJ').innerText = resultadoFormatado;
+    return resultadoJ;
+}
+
+
 
 
 
@@ -243,15 +267,19 @@ calcularResultados();
 function addDados(result, resultadoI) {
     const numero = parseFloat(resultadoI.replace('%', ''));
 
-    const acima = 0.10;
+    const acima = 5;
     const mensagemElement = document.getElementById("message");
+
+
+    // 🧠 Detecta automaticamente se usa "A" ou "O"
+    const feminino = ["toalha", "fronha", "camisola", "manta", "colcha"];
+    const artigo = feminino.includes(result.toLowerCase()) ? "A" : "O";
+
     const mensagem = numero <= acima
 
-
-
         ?
-        `A ${result} apresentou a redução mínima nas dimensões ${resultadoI}, mas nada que comprometa a sua integridade.` :
-        `A ${result} apresentou a redução acima do esperado ${resultadoI}, comprometendo a sua integridade.`;
+        `${artigo} ${result} apresentou a redução mínima nas dimensões ${resultadoI}, mas nada que comprometa a sua integridade.(ABNT NBR 15955 ) ` :
+        `${artigo} ${result} apresentou a redução acima do esperado ${resultadoI}, comprometendo a sua integridade.(ABNT NBR 15955 ) `;
 
     document.getElementById("message").textContent = mensagem;
 
@@ -277,7 +305,7 @@ document.getElementById("sun").addEventListener('click', () => {
 });
 
 function addDados3(resultadoC) {
-    document.getElementById("message3").textContent = ` Cor: ${resultadoC}`;
+    document.getElementById("message3").textContent = ` Cor: ${resultadoC} `;
 }
 
 document.getElementById("sun").addEventListener('click', () => {
@@ -331,11 +359,11 @@ function addDados8(resultadoH) {
     const mensagemElement = document.getElementById("message8");
     const mensagem = cond === "Dentro do esperado" ?
         `Despigmentação: ${resultadoH}` :
-        `Despigmentação: ${resultadoH} está fora dos parâmetros toleráveis para este tipo de enxoval.`;
+        `Despigmentação: ${resultadoH} está fora dos parâmetros toleráveis para este tipo de enxoval.(ABNT NBR ISO 105-C06)`;
 
     document.getElementById("message8").textContent = mensagem;
 
-    mensagemElement.style.color = resultadoH !== "Dentro do esperado" ? "red" : "color: #4C6173";
+    mensagemElement.style.color = resultadoH !== "Dentro do esperado (ABNT NBR ISO 105-C06)" ? "red" : "color: #4C6173";
 
 };
 document.getElementById("sun").addEventListener('click', () => {
@@ -347,11 +375,11 @@ function addDados9(resultadoI) {
     // Remove o símbolo de porcentagem e converte para número
     const numero = parseFloat(resultadoI.replace('%', ''));
     const mensagemElement = document.getElementById("message9");
-    const acima = 0.10;
+    const acima = 5;
 
     const mensagem = numero <= acima ?
-        `A redução nas dimensões (Comprimento): ${resultadoI} está dentro dos parâmetros toleráveis para este tipo de enxoval, sendo uma alteração natural do processo de lavagem` :
-        `A redução nas dimensões (Comprimento): ${resultadoI} está fora dos parâmetros toleráveis para este tipo de enxoval.`;
+        `A redução nas dimensões (Comprimento): ${resultadoI} está dentro dos parâmetros toleráveis para este tipo de enxoval, sendo uma alteração natural do processo de lavagem (ABNT NBR 13370) ` :
+        `A redução nas dimensões (Comprimento): ${resultadoI} está fora dos parâmetros toleráveis para este tipo de enxoval.(ABNT NBR 13370) `;
 
     document.getElementById("message9").textContent = mensagem;
 
@@ -367,11 +395,11 @@ function addDados10(resultadoJ) {
 
     const numero = parseFloat(resultadoJ.replace('%', ''));
     const mensagemElement = document.getElementById("message10");
-    const acima = 0.10;
+    const acima = 5;
 
     const mensagem = numero <= acima ?
-        `A redução nas dimensões (largura): ${resultadoJ} está dentro dos parâmetros toleráveis para este tipo de enxoval, sendo uma alteração natural do processo de lavagem` :
-        `A redução nas dimensões (largura): ${resultadoJ} está acima dos parâmetros toleráveis para este tipo de enxoval`;
+        `A redução nas dimensões (largura): ${resultadoJ} está dentro dos parâmetros toleráveis para este tipo de enxoval, sendo uma alteração natural do processo de lavagem (ABNT NBR 13370)` :
+        `A redução nas dimensões (largura): ${resultadoJ} está acima dos parâmetros toleráveis para este tipo de enxoval (ABNT NBR 13370)`;
 
     document.getElementById("message10").textContent = mensagem;
     mensagemElement.style.color = numero > acima ? "red" : "color: #4C6173";
