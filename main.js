@@ -358,12 +358,12 @@ function addDados8(resultadoH) {
     const cond = (resultadoH);
     const mensagemElement = document.getElementById("message8");
     const mensagem = cond === "Dentro do esperado" ?
-        `Despigmentação: ${resultadoH}` :
+        `Despigmentação: ${resultadoH} (ABNT NBR ISO 105-C06)` :
         `Despigmentação: ${resultadoH} está fora dos parâmetros toleráveis para este tipo de enxoval.(ABNT NBR ISO 105-C06)`;
 
     document.getElementById("message8").textContent = mensagem;
 
-    mensagemElement.style.color = resultadoH !== "Dentro do esperado (ABNT NBR ISO 105-C06)" ? "red" : "color: #4C6173";
+    mensagemElement.style.color = resultadoH !== "Dentro do esperado" ? "red" : "color: #4C6173";
 
 };
 document.getElementById("sun").addEventListener('click', () => {
