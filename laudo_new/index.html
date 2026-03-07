@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Laudo de análise têxtil</title>
+</head>
+<body>
+ <div class="laudo">
+
+<header class="cabecalho">
+
+<div class="logo">
+Lavebras Santana de Parnaíba
+</div>
+
+<div class="numero">
+LAUDO Nº 001
+</div>
+
+</header>
+
+<h1>LAUDO DE ANÁLISE TÊXTIL</h1>
+
+<section class="info">
+
+<p><strong>Cliente:</strong>
+<input id="cli">
+</p>
+
+<p><strong>Data:</strong>
+<input type="date">
+</p>
+
+</section>
+
+
+<h2>Item analisado</h2>
+
+<div class="item-analisado">
+
+<div>
+<label>Tipo de enxoval:</label>
+<input id="tipo" type="text">
+</div>
+
+<div>
+<label>Cor:</label>
+<input type="text">
+</div>
+
+<div>
+<label>Número de peças analisadas:</label>
+<input type="number">
+</div>
+
+<div>
+<label>Quantidade de ciclos de lavagem:</label>
+<input type="number">
+</div>
+
+</div>
+<p>Despigmentação:</p>
+
+<label>
+  <input type="radio" name="despigmentacao" value="Dentro do esperado">
+  Dentro do esperado
+</label>
+
+<label>
+  <input type="radio" name="despigmentacao" value="Acima do esperado">
+  Acima do esperado
+</label>
+
+<h2>Resultados</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Medida</th>
+<th>Inicial</th>
+<th>Final</th>
+<th>Redução</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Comprimento</td>
+<td><input id="d1"></td>
+<td><input id="d5"></td>
+<td id="resultadoI"></td>
+</tr>
+
+<tr>
+<td>Largura</td>
+<td><input id="e1"></td>
+<td><input id="e5"></td>
+<td id="resultadoJ"></td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<h2>Conclusão</h2>
+
+<p id="message"></p>
+<div class="btns">
+<button onclick="calcularLaudo()"><i class="fa-solid fa-calculator" style="color: #4C6173; font-size: 28px;"></i></button>
+<button class="pdf" id="PDF"><i class="fa-solid fa-file-pdf" style="color: #4C6173;; font-size: 28px;"></i></button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="main.js"></script>
+
+
+<footer>
+
+<p>Responsável técnico:</p>
+<p>José Paulo</p> 
+<p>CRQ: 044123686</p>
+
+<div class="assinatura"></div>
+
+</footer>
+
+
+<section class="fotos">
+    <div class="conteudoFotos">
+        <form id="formFotos" onsubmit="salvarFotos(event)">
+            
+            <!-- Fotos Pré-lavagem -->
+            <fieldset class="retrato">
+                <legend>Fotos pré-lavagem </legend>
+                <div class="fotoUpload">
+                    <div class="foto-container">
+                        <img id="preview1" src="https://via.placeholder.com/150" alt="Foto 1">
+                        <input type="file" id="foto1" accept="image/*" onchange="previewImage(event, 'preview1')">
+                    </div>
+                    <div class="foto-container">
+                        <img id="preview2" src="https://via.placeholder.com/150" alt="Foto 2">
+                        <input type="file" id="foto2" accept="image/*" onchange="previewImage(event, 'preview2')">
+                    </div>
+                    <div class="foto-container">
+                        <img id="preview3" src="https://via.placeholder.com/150" alt="Foto 3">
+                        <input type="file" id="foto3" accept="image/*" onchange="previewImage(event, 'preview3')">
+                    </div>
+                    <div class="foto-container">
+                        <img id="preview4" src="https://via.placeholder.com/150" alt="Foto 4">
+                        <input type="file" id="foto4" accept="image/*" onchange="previewImage(event, 'preview4')">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Fotos Pós-lavagem -->
+            <fieldset class="retrato">
+                <legend>Fotos pós-lavagem </legend>
+                <div class="fotoUpload">
+                    <div class="foto-container">
+                        <img id="preview5" src="https://via.placeholder.com/150" alt="Foto 5">
+                        <input type="file" id="foto5" accept="image/*" onchange="previewImage(event, 'preview5')">
+                    </div>
+                    <div class="foto-container">
+                        <img id="preview6" src="https://via.placeholder.com/150" alt="Foto 6">
+                        <input type="file" id="foto6" accept="image/*" onchange="previewImage(event, 'preview6')">
+                    </div>
+                    <div class="foto-container">
+                        <img id="preview7" src="https://via.placeholder.com/150" alt="Foto 7">
+                        <input type="file" id="foto7" accept="image/*" onchange="previewImage(event, 'preview7')">
+                    </div>
+                    <div class="foto-container">
+                        <img id="preview8" src="https://via.placeholder.com/150" alt="Foto 8">
+                        <input type="file" id="foto8" accept="image/*" onchange="previewImage(event, 'preview8')">
+                    </div>
+                </div>
+           
+                    <a class="e-mail">jose.siqueira@elis.com</a>
+               
+            </fieldset>
+
+           
+          
+            
+            <div class="previsaoFotos" id="previsaoFotos"></div>
+           </div> 
+           
+        </form>
+    </div>
+    <footer>
+    
+</section>
+
+
+<script>
+    // Função para exibir a prévia da imagem ao selecionar um arquivo
+    function previewImage(event, previewId) {
+        const input = event.target;
+        const preview = document.getElementById(previewId);
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Exibir todas as fotos carregadas
+    function preverFotos() {
+        const previewContainer = document.getElementById("previsaoFotos");
+        previewContainer.innerHTML = "";
+
+        for (let i = 1; i <= 8; i++) {
+            const file = document.getElementById(`foto${i}`).files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.createElement("img");
+                    img.src = e.target.result;
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    // Salvar fotos no localStorage e redirecionar
+    function salvarFotos(event) {
+        event.preventDefault();
+
+        const fotosBase64 = [];
+        const readerPromises = [];
+
+        for (let i = 1; i <= 8; i++) {
+            const file = document.getElementById(`foto${i}`).files[0];
+            if (file) {
+                readerPromises.push(new Promise(resolve => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.readAsDataURL(file);
+                }));
+            }
+        }
+
+        Promise.all(readerPromises).then(results => {
+            results.forEach(result => {
+                if (result) fotosBase64.push(result);
+            });
+
+            if (fotosBase64.length === 0) {
+                alert("Por favor, adicione pelo menos uma foto antes de salvar.");
+                return;
+            }
+
+            // Salva as fotos no localStorage
+            localStorage.setItem("fotosLaudo", JSON.stringify(fotosBase64));
+
+            // Redireciona para index.html
+            window.location.href = "index.html";
+        }).catch(err => {
+            console.error("Erro ao salvar fotos:", err);
+            alert("Erro ao salvar as fotos. Tente novamente.");
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -272,7 +272,7 @@ function addDados(result, resultadoI) {
 
 
     // 🧠 Detecta automaticamente se usa "A" ou "O"
-    const feminino = ["toalha", "fronha", "camisola", "manta", "colcha"];
+    const feminino = ["toalha", "fronha", "camisola", "lençol", "privativo", "cirurgico"];
     const artigo = feminino.includes(result.toLowerCase()) ? "A" : "O";
 
     const mensagem = numero <= acima
